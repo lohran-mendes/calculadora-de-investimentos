@@ -12,8 +12,6 @@ export class UserInputComponent {
   enteredInvestmentDuration: number = 0;
 
 onSubmit(){
-  console.log('funcionou, foi submetido')
-  console.log(this.enteredInvestmentInitial)
-  console.log(typeof this.enteredInvestmentInitial)
+  console.log('teste do botão onSubmit')
 }
 }
