@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DataModel } from '../interface/data-model';
+import { CalculateService } from '../investment-results/calculate.service';
 
 @Component({
   selector: 'app-user-input',
@@ -6,12 +8,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-input.component.css']
 })
 export class UserInputComponent {
+  constructor(private calculateService: CalculateService){}
+  valuesInvestment?: DataModel;
   enteredInvestmentInitial: number = 0;
   enteredInvestmentAnnual: number = 0;
-  enteredInvestmentReturnal: number = 0;
-  enteredInvestmentDuration: number = 0;
+  enteredInvestmentReturnal: number = 10;
+  enteredInvestmentDuration: number = 5;
 
-onSubmit(){
-  console.log('teste do botão onSubmit')
-}
+  onSubmit() {
+    this.valuesInvestment = {
+      initialInvestment: this.enteredInvestmentInitial,
+      annualInvestment: this.enteredInvestmentAnnual,
+      duration: this.enteredInvestmentDuration,
+      expectedReturn: this.enteredInvestmentReturnal,
+    };
+    this.calculateService.calculateInvestmentResults(this.valuesInvestment)
+  }
 }
