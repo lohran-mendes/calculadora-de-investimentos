@@ -1,11 +1,24 @@
-<table class="center">
-  <thead>
-    <tr>
-      <th>Ano</th>
-      <th>Valor do investimento</th>
-      <th>Ganhos (por ano)</th>
-      <th>Ganhos (total)</th>
-      <th>Capital investido</th>
-    </tr>
-  </thead>
-</table>
+<h2 class="center" *ngIf="!results else tabela" >Insira os valores do investimento para o calculo</h2>
+
+<ng-template #tabela>
+  <table class="center">
+    <thead>
+      <tr>
+        <th>Ano</th>
+        <th>Juros (por ano)</th>
+        <th>Ganhos</th>
+        <th>Valor do investimento</th>
+        <th>Capital investido</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let result of results">
+        <td>{{result.year}}</td>
+        <td>{{result.interest | currency:'BRL'}}</td>
+        <td>{{result.totalInterest | currency:'BRL'}}</td>
+        <td>{{result.valueEndOfYear | currency:'BRL'}}</td>
+        <td>{{result.totalAmountInvested | currency:'BRL'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
