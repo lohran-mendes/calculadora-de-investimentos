@@ -5,6 +5,14 @@ import { DataModel } from '../interface/data-model';
   providedIn: 'root',
 })
 export class CalculateService {
+  results?:{
+    year: number,
+    interest: number,
+    valueEndOfYear: number,
+    annualInvestment: number,
+    totalInterest: number,
+    totalAmountInvested: number,
+  }[];
   calculateInvestmentResults(data: DataModel) {
     // aqui está sendo aplicado o método de desestruturação de objetos do js
     const { initialInvestment, duration, expectedReturn, annualInvestment } =
@@ -34,7 +42,6 @@ export class CalculateService {
         totalAmountInvested: initialInvestment + annualInvestment * year,
       });
     }
-
-    console.log(annualData);
+    this.results = annualData;
   }
 }

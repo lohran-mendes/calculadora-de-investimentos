@@ -12,8 +12,8 @@ export class UserInputComponent {
   valuesInvestment?: DataModel;
   enteredInvestmentInitial: number = 0;
   enteredInvestmentAnnual: number = 0;
-  enteredInvestmentReturnal: number = 10;
-  enteredInvestmentDuration: number = 5;
+  enteredInvestmentReturnal: number = 5;
+  enteredInvestmentDuration: number = 10;
 
   onSubmit() {
     this.valuesInvestment = {
